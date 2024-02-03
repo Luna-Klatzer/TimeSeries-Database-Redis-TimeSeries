@@ -1,0 +1,95 @@
+# ============================================================
+# Visitor Reviews
+# ============================================================
+
+# Get all reviews
+
+TS.RANGE VISITOR_REVIEWS - +
+
+# Get the average review per 5 minutes
+
+TS.RANGE VISITOR_REVIEWS - + AGGREGATION avg 300000
+
+# Get the average review per hour
+
+TS.RANGE VISITOR_REVIEWS - + AGGREGATION avg 3600000
+
+# Get the max review for every hour
+
+TS.RANGE VISITOR_REVIEWS - + AGGREGATION max 3600000
+
+# Get the min review for every hour
+
+TS.RANGE VISITOR_REVIEWS - + AGGREGATION min 3600000
+
+# ============================================================
+# Oil Painting temp sensor
+# ============================================================
+
+# Get all temperatures
+
+TS.RANGE ROOM_1_OIL_PAINTINGS_TEMP - +
+
+# Get all temperatures between 20-30 degrees Celsius
+
+TS.RANGE ROOM_1_OIL_PAINTINGS_TEMP - + FILTER_BY_VALUE 20 30
+
+# Get the average temperature for buckets in size of 10s
+
+TS.RANGE ROOM_1_OIL_PAINTINGS_TEMP - + AGGREGATION avg 10000
+
+# ============================================================
+# Ice Sculptures room temp sensor
+# ============================================================
+
+# Get all temperatures
+
+TS.RANGE ROOM_2_ICE_SCULPTURES - +
+
+# Get the count of temperature readings per day
+
+TS.RANGE ROOM_2_ICE_SCULPTURES - + AGGREGATION count 86400000
+
+# Get all temperatures between -10 to 0 degrees Celsius
+
+TS.RANGE ROOM_2_ICE_SCULPTURES - + FILTER_BY_VALUE -10 0
+
+# Get the average temperature for buckets in size of 10s
+
+TS.RANGE ROOM_2_ICE_SCULPTURES - + AGGREGATION avg 10000
+
+# Get the max temperature for every hour
+
+TS.RANGE ROOM_2_ICE_SCULPTURES - + AGGREGATION max 3600000
+
+# Get the min temperature for every hour
+
+TS.RANGE ROOM_2_ICE_SCULPTURES - + AGGREGATION min 3600000
+
+# Check if there is a temperature above 0 degrees Celsius (in buckets of 60 minutes)
+
+TS.RANGE ROOM_2_ICE_SCULPTURES - + FILTER_BY_VALUE 0 9999 AGGREGATION count 3600000
+
+# ============================================================
+# Visitor Counter
+# ============================================================
+
+# Get all visitors
+
+TS.RANGE VISITOR_COUNTER - +
+
+# Get the average visitors per 5 minutes
+
+TS.RANGE VISITOR_COUNTER - + AGGREGATION avg 300000
+
+# Get the average visitors per hour
+
+TS.RANGE VISITOR_COUNTER - + AGGREGATION avg 3600000
+
+# Get the max visitors for every hour
+
+TS.RANGE VISITOR_COUNTER - + AGGREGATION max 3600000
+
+# Get the min visitors for every hour
+
+TS.RANGE VISITOR_COUNTER - + AGGREGATION min 3600000

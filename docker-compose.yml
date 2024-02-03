@@ -1,0 +1,19 @@
+services:
+  redis-db:
+    build: .
+    ports:
+      - "6380:6379"
+      - "8002:8001"
+    privileged: true
+    volumes:
+      - ./data:/redis/data
+    environment:
+      REDIS_ROOT_PASSWORD: ${REDIS_ROOT_PASSWORD}
+      REDIS_USERNAME: ${REDIS_USERNAME}
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+    restart: always
