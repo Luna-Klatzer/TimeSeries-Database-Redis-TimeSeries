@@ -44,31 +44,31 @@ TS.RANGE ROOM_1_OIL_PAINTINGS_TEMP - + AGGREGATION avg 10000
 
 # Get all temperatures
 
-TS.RANGE ROOM_2_ICE_SCULPTURES - +
+TS.RANGE ROOM_2_ICE_SCULPTURES_TEMP - +
 
 # Get the count of temperature readings per day
 
-TS.RANGE ROOM_2_ICE_SCULPTURES - + AGGREGATION count 86400000
+TS.RANGE ROOM_2_ICE_SCULPTURES_TEMP - + AGGREGATION count 86400000
 
 # Get all temperatures between -10 to 0 degrees Celsius
 
-TS.RANGE ROOM_2_ICE_SCULPTURES - + FILTER_BY_VALUE -10 0
+TS.RANGE ROOM_2_ICE_SCULPTURES_TEMP - + FILTER_BY_VALUE -10 0
 
 # Get the average temperature for buckets in size of 10s
 
-TS.RANGE ROOM_2_ICE_SCULPTURES - + AGGREGATION avg 10000
+TS.RANGE ROOM_2_ICE_SCULPTURES_TEMP - + AGGREGATION avg 10000
 
 # Get the max temperature for every hour
 
-TS.RANGE ROOM_2_ICE_SCULPTURES - + AGGREGATION max 3600000
+TS.RANGE ROOM_2_ICE_SCULPTURES_TEMP - + AGGREGATION max 3600000
 
 # Get the min temperature for every hour
 
-TS.RANGE ROOM_2_ICE_SCULPTURES - + AGGREGATION min 3600000
+TS.RANGE ROOM_2_ICE_SCULPTURES_TEMP - + AGGREGATION min 3600000
 
 # Check if there is a temperature above 0 degrees Celsius (in buckets of 60 minutes)
 
-TS.RANGE ROOM_2_ICE_SCULPTURES - + FILTER_BY_VALUE 0 9999 AGGREGATION count 3600000
+TS.RANGE ROOM_2_ICE_SCULPTURES_TEMP - + FILTER_BY_VALUE 0 9999 AGGREGATION count 3600000
 
 # ============================================================
 # Visitor Counter
